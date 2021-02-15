@@ -87,6 +87,7 @@ export default {
     deleteTodo(todo) {
       todosCollection.doc(todo.id).delete();
     },
+    editTodo(todo) {},
   },
 };
 </script>

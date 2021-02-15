@@ -2,6 +2,8 @@
 
 > A vue vuefire and firebase based todo list
 
+> Add new numbers of todo item using firebase firestore! 
+
 ## Build Setup
 
 ``` bash
