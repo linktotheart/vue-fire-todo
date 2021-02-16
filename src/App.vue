@@ -60,22 +60,25 @@ export default {
   },
   methods: {
     addTodo() {
-      todosCollection
-        .add({
-          text: this.newTodo,
-          completed: false,
-          id: this.todos.length,
-          createdAt: new Date(),
-          currentlyEditing: null,
-          todoEditText: "",
-        })
-        .then(function (docRef) {
-          console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function (error) {
-          console.error("Error adding document: ", error);
-        });
-      this.newTodo = "";
+      if ((this.todo = "")) return;
+      else {
+        todosCollection
+          .add({
+            text: this.newTodo,
+            completed: false,
+            id: this.todos.length,
+            createdAt: new Date(),
+            currentlyEditing: null,
+            todoEditText: "",
+          })
+          .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+        this.newTodo = "";
+      }
     },
     updateTodo(todo) {
       todosCollection
@@ -192,5 +195,9 @@ a {
   border-radius: 3px;
   cursor: pointer;
   float: right;
+}
+.btn-group {
+  margin-left: auto;
+  padding-right: 0.5rem;
 }
 </style>
